@@ -36,12 +36,12 @@ jobs:
     
     - name : Generate quality report
       env :
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL : ${{ secrets.SONAR_HOST_URL }}
+        SONAR_TOKEN: ${{ secrets.SONARTOKEN }}
+        SONAR_HOST_URL : ${{ secrets.SONARURL }}
       run : >
         mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
         -Dsonar.host.url=https://sonarcloud.io
         -Dsonar.organization=kreik2809
         -Dsonar.projectKey=Kreik2809_TimerStopWatch-Project
         -Dsonar.branch.name=main
-        -Dsonar.login= $SONAR_TOKEN
+        -Dsonar.login= $SONARTOKEN
